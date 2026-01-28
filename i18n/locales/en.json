@@ -1,0 +1,43 @@
+{
+  "common": {
+    "loading": "Loading...",
+    "error": "An error occurred",
+    "retry": "Retry",
+    "cancel": "Cancel",
+    "save": "Save",
+    "delete": "Delete",
+    "edit": "Edit",
+    "back": "Back",
+    "next": "Next",
+    "done": "Done",
+    "search": "Search",
+    "noResults": "No results"
+  },
+  "tabs": {
+    "home": "Home",
+    "explore": "Explore",
+    "profile": "Profile"
+  },
+  "screens": {
+    "home": {
+      "welcome": "Welcome",
+      "subtitle": "Get started by exploring the app"
+    },
+    "explore": {
+      "title": "Explore",
+      "empty": "Nothing here yet"
+    },
+    "profile": {
+      "title": "Profile",
+      "displayName": "User",
+      "rolePlaceholder": "—",
+      "settings": "Settings",
+      "logout": "Log out"
+    },
+    "notFound": {
+      "title": "Oops!",
+      "description": "This screen doesn't exist.",
+      "goHome": "Go to home"
+    }
+  }
+}
