@@ -2,8 +2,6 @@
 
 A starter mobile app built with [Expo](https://expo.dev) and React Native. Includes Expo Router with native tabs, NativeWind, and i18n. Clone this repo to kick off new projects without repeating the same setup.
 
-## Getting Started
-
 ## Using This Template
 
 1. Clone the repository.
