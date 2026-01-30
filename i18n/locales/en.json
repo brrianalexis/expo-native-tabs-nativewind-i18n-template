@@ -11,7 +11,7 @@
     "next": "Next",
     "done": "Done",
     "search": "Search",
-    "noResults": "No results"
+    "no_results": "No results"
   },
   "tabs": {
     "home": "Home",
@@ -29,15 +29,49 @@
     },
     "profile": {
       "title": "Profile",
-      "displayName": "User",
-      "rolePlaceholder": "—",
+      "display_name": "User",
+      "role_placeholder": "—",
       "settings": "Settings",
-      "logout": "Log out"
+      "logout": "Log out",
+      "edit_username": "Edit Username",
+      "edit_username_description": "Choose a unique username. This will be visible to other users.",
+      "username": "Username",
+      "username_placeholder": "john_doe"
     },
-    "notFound": {
+    "not_found": {
       "title": "Oops!",
       "description": "This screen doesn't exist.",
-      "goHome": "Go to home"
+      "go_home": "Go to home"
+    },
+    "login": {
+      "email_label": "Email",
+      "email_placeholder": "you@example.com",
+      "password_label": "Password",
+      "password_placeholder": "••••••••",
+      "submit": "Sign in",
+      "submitting": "Signing in..."
+    }
+  },
+  "validation": {
+    "email": {
+      "invalid": "Invalid email address"
+    },
+    "password": {
+      "min": "Password must be at least 8 characters"
+    },
+    "confirm_password": {
+      "mismatch": "Passwords don't match"
+    },
+    "name": {
+      "min": "Name must be at least 2 characters"
+    },
+    "bio": {
+      "max": "Bio must be 160 characters or less"
+    },
+    "username": {
+      "min": "Username must be at least 3 characters",
+      "max": "Username must be 20 characters or less",
+      "pattern": "Only letters, numbers, and underscores allowed"
     }
   }
 }

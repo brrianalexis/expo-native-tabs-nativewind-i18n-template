@@ -2,7 +2,8 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { Controller, useForm } from "react-hook-form";
 import { View } from "react-native";
 
-import { type LoginFormData, loginSchema } from "@/lib/schemas";
+import { useI18n } from "@/hooks/useI18n";
+import { createLoginSchema, type LoginFormData } from "@/lib/schemas";
 
 import { Button } from "./Button";
 import { Input } from "./Input";
@@ -13,12 +14,14 @@ interface LoginFormProps {
 }
 
 export function LoginForm({ onSubmit, isLoading = false }: LoginFormProps) {
+  const { t } = useI18n();
+
   const {
     control,
     handleSubmit,
     formState: { errors },
   } = useForm<LoginFormData>({
-    resolver: zodResolver(loginSchema),
+    resolver: zodResolver(createLoginSchema(t)),
     defaultValues: {
       email: "",
       password: "",
@@ -32,8 +35,8 @@ export function LoginForm({ onSubmit, isLoading = false }: LoginFormProps) {
         name="email"
         render={({ field: { onChange, onBlur, value } }) => (
           <Input
-            label="Email"
-            placeholder="you@example.com"
+            label={t("screens.login.email_label")}
+            placeholder={t("screens.login.email_placeholder")}
             keyboardType="email-address"
             autoCapitalize="none"
             autoComplete="email"
@@ -50,8 +53,8 @@ export function LoginForm({ onSubmit, isLoading = false }: LoginFormProps) {
         name="password"
         render={({ field: { onChange, onBlur, value } }) => (
           <Input
-            label="Password"
-            placeholder="••••••••"
+            label={t("screens.login.password_label")}
+            placeholder={t("screens.login.password_placeholder")}
             secureTextEntry
             autoComplete="password"
             onBlur={onBlur}
@@ -63,7 +66,7 @@ export function LoginForm({ onSubmit, isLoading = false }: LoginFormProps) {
       />
 
       <Button onPress={handleSubmit(onSubmit)} disabled={isLoading} className="mt-2">
-        {isLoading ? "Signing in..." : "Sign in"}
+        {isLoading ? t("screens.login.submitting") : t("screens.login.submit")}
       </Button>
     </View>
   );

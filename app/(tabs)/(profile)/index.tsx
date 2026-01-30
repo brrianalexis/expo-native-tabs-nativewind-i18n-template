@@ -9,7 +9,7 @@ export default function ProfileScreen() {
   const { t } = useI18n();
   const { user, logout } = useAuthStore();
 
-  const displayName = user?.name || t("screens.profile.displayName");
+  const displayName = user?.name || t("screens.profile.display_name");
 
   return (
     <ScrollView
@@ -25,13 +25,13 @@ export default function ProfileScreen() {
           {displayName}
         </Typography>
         <Typography variant="body" color="text-slate-500 dark:text-slate-400">
-          {user?.email || t("screens.profile.rolePlaceholder")}
+          {user?.email || t("screens.profile.role_placeholder")}
         </Typography>
       </View>
 
       <View className="gap-3">
         <Button variant="secondary" onPress={() => router.push("/edit-username")}>
-          ✏️ Edit Username
+          ✏️ {t("screens.profile.edit_username")}
         </Button>
 
         <Button variant="secondary" onPress={() => undefined}>

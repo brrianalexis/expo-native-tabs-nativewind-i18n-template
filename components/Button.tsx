@@ -10,6 +10,7 @@ interface ButtonProps {
   size?: ButtonSize;
   disabled?: boolean;
   className?: string;
+  accessibilityLabel?: string;
 }
 
 const variantClasses: Record<ButtonVariant, { container: string; text: string }> = {
@@ -45,6 +46,7 @@ export function Button({
   size = "md",
   disabled = false,
   className = "",
+  accessibilityLabel,
 }: ButtonProps) {
   const variantStyle = variantClasses[variant];
   const sizeStyle = sizeClasses[size];
@@ -53,6 +55,9 @@ export function Button({
     <Pressable
       onPress={onPress}
       disabled={disabled}
+      accessibilityRole="button"
+      accessibilityLabel={accessibilityLabel}
+      accessibilityState={{ disabled }}
       className={`items-center justify-center ${sizeStyle.container} ${variantStyle.container} ${disabled ? "opacity-50" : ""} ${className}`}
     >
       <Text className={`font-semibold ${sizeStyle.text} ${variantStyle.text}`}>{children}</Text>

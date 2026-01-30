@@ -11,7 +11,7 @@
     "next": "Siguiente",
     "done": "Listo",
     "search": "Buscar",
-    "noResults": "Sin resultados"
+    "no_results": "Sin resultados"
   },
   "tabs": {
     "home": "Inicio",
@@ -29,15 +29,49 @@
     },
     "profile": {
       "title": "Perfil",
-      "displayName": "Usuario",
-      "rolePlaceholder": "—",
+      "display_name": "Usuario",
+      "role_placeholder": "—",
       "settings": "Configuración",
-      "logout": "Cerrar sesión"
+      "logout": "Cerrar sesión",
+      "edit_username": "Editar nombre de usuario",
+      "edit_username_description": "Elegí un nombre de usuario único. Será visible para otros usuarios.",
+      "username": "Nombre de usuario",
+      "username_placeholder": "juan_perez"
     },
-    "notFound": {
+    "not_found": {
       "title": "¡Oops!",
       "description": "Esta pantalla no existe.",
-      "goHome": "Ir al inicio"
+      "go_home": "Ir al inicio"
+    },
+    "login": {
+      "email_label": "Email",
+      "email_placeholder": "tu@ejemplo.com",
+      "password_label": "Contraseña",
+      "password_placeholder": "••••••••",
+      "submit": "Iniciar sesión",
+      "submitting": "Iniciando sesión..."
+    }
+  },
+  "validation": {
+    "email": {
+      "invalid": "Email inválido"
+    },
+    "password": {
+      "min": "La contraseña debe tener al menos 8 caracteres"
+    },
+    "confirm_password": {
+      "mismatch": "Las contraseñas no coinciden"
+    },
+    "name": {
+      "min": "El nombre debe tener al menos 2 caracteres"
+    },
+    "bio": {
+      "max": "La bio debe tener 160 caracteres o menos"
+    },
+    "username": {
+      "min": "El nombre de usuario debe tener al menos 3 caracteres",
+      "max": "El nombre de usuario debe tener 20 caracteres o menos",
+      "pattern": "Solo se permiten letras, números y guiones bajos"
     }
   }
 }
