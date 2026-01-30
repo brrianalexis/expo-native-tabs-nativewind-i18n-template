@@ -8,12 +8,12 @@ export default function TabLayout() {
 
   return (
     <NativeTabs minimizeBehavior={Platform.OS === "ios" ? "onScrollDown" : undefined}>
-      <NativeTabs.Trigger name="index">
+      <NativeTabs.Trigger name="(home)">
         <Label>{t("tabs.home")}</Label>
         <Icon sf={{ default: "house", selected: "house.fill" }} />
       </NativeTabs.Trigger>
 
-      <NativeTabs.Trigger name="explore">
+      <NativeTabs.Trigger name="(explore)">
         <Label>{t("tabs.explore")}</Label>
         <Icon
           sf={{
@@ -23,7 +23,7 @@ export default function TabLayout() {
         />
       </NativeTabs.Trigger>
 
-      <NativeTabs.Trigger name="profile">
+      <NativeTabs.Trigger name="(profile)">
         <Label>{t("tabs.profile")}</Label>
         <Icon sf={{ default: "person.circle", selected: "person.circle.fill" }} />
       </NativeTabs.Trigger>
