@@ -44,6 +44,9 @@ yarn-error.*
 # typescript
 *.tsbuildinfo
 
+# Storybook
+.rnstorybook/storybook.requires.ts
+
 # generated native folders
 /ios
 /android
