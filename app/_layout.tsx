@@ -2,11 +2,7 @@ import "@/i18n";
 import "react-native-reanimated";
 import "../global.css";
 
-import {
-  DarkTheme,
-  DefaultTheme,
-  ThemeProvider,
-} from "@react-navigation/native";
+import { DarkTheme, DefaultTheme, ThemeProvider } from "@react-navigation/native";
 import { Stack } from "expo-router";
 import { useColorScheme } from "react-native";
 import { QueryProvider } from "@/providers";

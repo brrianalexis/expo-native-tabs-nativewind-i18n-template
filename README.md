@@ -1,6 +1,6 @@
 # Expo Template – Native Tabs, NativeWind, i18n
 
-A starter mobile app built with [Expo](https://expo.dev) and React Native. Includes Expo Router with native tabs, NativeWind, i18n, Zustand for state management, React Query for data fetching, and Zod for form validation. Clone this repo to kick off new projects without repeating the same setup.
+A starter mobile app built with [Expo](https://expo.dev) and React Native. Includes Expo Router with native tabs, NativeWind, i18n, Zustand for state management, React Query for data fetching, Zod for form validation, and Storybook for on-device component development. Clone this repo to kick off new projects without repeating the same setup.
 
 ## Using This Template
 
@@ -23,10 +23,10 @@ A starter mobile app built with [Expo](https://expo.dev) and React Native. Inclu
 │   └── +not-found.tsx      # 404 screen
 ├── assets/                 # Static assets (images, fonts)
 ├── components/             # Reusable UI components
-│   ├── Button.tsx          # Button component with variants
-│   ├── Input.tsx           # Input component with validation
-│   ├── Typography.tsx      # Typography component
-│   └── LoginForm.tsx       # Example form with validation
+│   ├── Button/             # Button component with variants
+│   ├── Input/              # Input component with validation
+│   ├── Typography/         # Typography component
+│   └── LoginForm/          # Example form with validation
 ├── hooks/                  # Custom React hooks
 │   └── useI18n.ts          # i18n hook wrapper
 ├── i18n/                   # Internationalization setup
@@ -38,22 +38,28 @@ A starter mobile app built with [Expo](https://expo.dev) and React Native. Inclu
 │   └── query.tsx           # React Query provider
 ├── stores/                 # Zustand state stores
 │   └── auth.ts             # Authentication store
+├── .rnstorybook/           # Storybook configuration
+│   ├── main.ts             # Stories glob and addons config
+│   ├── preview.tsx         # Global decorators and parameters
+│   └── index.tsx           # Storybook UI root
 ├── global.css              # Global styles with Tailwind
 └── app.json                # Expo configuration
 ```
 
 ## Available Scripts
 
-| Command          | Description                                |
-| ---------------- | ------------------------------------------ |
-| `bun start`      | Start the Expo development server          |
-| `bun ios`        | Run on iOS Simulator                       |
-| `bun android`    | Run on Android Emulator                    |
-| `bun web`        | Run in the web browser                     |
-| `bun type-check` | Run TypeScript compiler in check-only mode |
-| `bun lint`       | Run Biome linter                           |
-| `bun lint:fix`   | Run Biome linter with auto-fix             |
-| `bun validate`   | Run type-check and lint:fix in sequence    |
+| Command                   | Description                                |
+| ------------------------- | ------------------------------------------ |
+| `bun start`               | Start the Expo development server          |
+| `bun ios`                 | Run on iOS Simulator                       |
+| `bun android`             | Run on Android Emulator                    |
+| `bun web`                 | Run in the web browser                     |
+| `bun storybook`           | Start Expo with the Storybook UI           |
+| `bun storybook:generate`  | Regenerate the stories index file          |
+| `bun type-check`          | Run TypeScript compiler in check-only mode |
+| `bun lint`                | Run Biome linter                           |
+| `bun lint:fix`            | Run Biome linter with auto-fix             |
+| `bun validate`            | Run type-check and lint:fix in sequence    |
 
 ## Tech Stack
 
@@ -66,6 +72,7 @@ A starter mobile app built with [Expo](https://expo.dev) and React Native. Inclu
 - **Data Fetching**: [TanStack Query (React Query)](https://tanstack.com/query)
 - **Form Validation**: [React Hook Form](https://react-hook-form.com/) + [Zod](https://zod.dev/)
 - **Language**: TypeScript
+- **Component Development**: [Storybook for React Native](https://storybook.js.org/docs/react-native/get-started/introduction) (on-device)
 - **Linting**: [Biome](https://biomejs.dev/)
 
 ## Internationalization (i18n)
@@ -134,6 +141,73 @@ function MyComponent() {
 }
 ```
 
+## Storybook
+
+The project includes [Storybook for React Native](https://storybook.js.org/docs/react-native/get-started/introduction) for developing and previewing components in isolation, directly on the device or simulator.
+
+### Running Storybook
+
+```bash
+bun storybook
+```
+
+This sets `EXPO_PUBLIC_STORYBOOK_ENABLED=true` and starts Expo. The root layout detects the flag and renders the Storybook UI instead of the normal app.
+
+### Writing Stories
+
+Each story file lives inside its component folder with the `.stories.tsx` extension:
+
+```
+components/
+├── Button/
+│   ├── Button.tsx
+│   └── Button.stories.tsx
+├── Input/
+│   ├── Input.tsx
+│   └── Input.stories.tsx
+└── Typography/
+    ├── Typography.tsx
+    └── Typography.stories.tsx
+```
+
+Stories follow the standard [Component Story Format (CSF)](https://storybook.js.org/docs/api/csf):
+
+```tsx
+// components/Button/Button.stories.tsx
+import type { Meta, StoryObj } from "@storybook/react";
+import { Button } from "./Button";
+
+const meta: Meta<typeof Button> = {
+  title: "Components/Button",
+  component: Button,
+  argTypes: {
+    variant: {
+      control: "select",
+      options: ["primary", "secondary", "outline", "ghost"],
+    },
+  },
+};
+
+export default meta;
+
+type Story = StoryObj<typeof Button>;
+
+export const Primary: Story = {
+  args: {
+    children: "Primary Button",
+    variant: "primary",
+  },
+};
+```
+
+### Addons
+
+The following on-device addons are configured in `.rnstorybook/main.ts`:
+
+- **Controls** – tweak component props via the Storybook panel
+- **Actions** – log callback events (e.g. `onPress`)
+- **Backgrounds** – toggle between light and dark backgrounds
+
 ## Learn More
 
 - [Expo Documentation](https://docs.expo.dev/)
@@ -143,6 +217,7 @@ function MyComponent() {
 - [Zustand Documentation](https://zustand-demo.pmnd.rs/)
 - [TanStack Query Documentation](https://tanstack.com/query)
 - [Zod Documentation](https://zod.dev/)
+- [Storybook for React Native](https://storybook.js.org/docs/react-native/get-started/introduction)
 - [Biome Documentation](https://biomejs.dev/)
 
 ## License

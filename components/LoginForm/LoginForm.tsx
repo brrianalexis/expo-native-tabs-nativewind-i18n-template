@@ -1,12 +1,10 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Controller, useForm } from "react-hook-form";
 import { View } from "react-native";
-
+import { Button } from "@/components/Button";
+import { Input } from "@/components/Input";
 import { useI18n } from "@/hooks/useI18n";
 import { createLoginSchema, type LoginFormData } from "@/lib/schemas";
-
-import { Button } from "./Button";
-import { Input } from "./Input";
 
 interface LoginFormProps {
   onSubmit: (data: LoginFormData) => void;

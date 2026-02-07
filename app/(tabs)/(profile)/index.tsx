@@ -1,7 +1,8 @@
 import { router } from "expo-router";
 import { ScrollView, View } from "react-native";
 
-import { Button, Typography } from "@/components";
+import { Button } from "@/components/Button";
+import { Typography } from "@/components/Typography";
 import { useI18n } from "@/hooks/useI18n";
 import { useAuthStore } from "@/stores";
 

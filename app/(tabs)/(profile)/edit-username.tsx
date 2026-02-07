@@ -3,7 +3,9 @@ import { router } from "expo-router";
 import { Controller, useForm } from "react-hook-form";
 import { Alert, ScrollView, View } from "react-native";
 
-import { Button, Input, Typography } from "@/components";
+import { Button } from "@/components/Button";
+import { Input } from "@/components/Input";
+import { Typography } from "@/components/Typography";
 import { useI18n } from "@/hooks/useI18n";
 import { createUsernameSchema, type UsernameFormData } from "@/lib/schemas";
 import { useAuthStore } from "@/stores";

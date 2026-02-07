@@ -1,6 +1,6 @@
 import { View } from "react-native";
 
-import { Typography } from "@/components";
+import { Typography } from "@/components/Typography";
 import { useI18n } from "@/hooks/useI18n";
 
 export default function HomeScreen() {
